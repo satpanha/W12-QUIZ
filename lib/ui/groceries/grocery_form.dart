@@ -1,5 +1,3 @@
-import 'dart:js_interop';
-
 import 'package:flutter/material.dart';
 import 'package:last_quiz_w12/data/mock_grocery_repository.dart';
 
