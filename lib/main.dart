@@ -1,30 +1,64 @@
 import 'package:flutter/material.dart';
-import 'ui/groceries/grocery_list.dart';
 
+import 'models/restaurant.dart';
+import 'models/restaurant_type.dart';
+import 'ui/screens/restaurants_view.dart';
+import 'ui/theme.dart';
 
 void main() {
-
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      color: AppColors.main,
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Groceries',
-      theme: ThemeData.dark().copyWith(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color.fromARGB(255, 147, 229, 250),
-          brightness: Brightness.dark,
-          surface: const Color.fromARGB(255, 42, 51, 59),
-        ),
-        scaffoldBackgroundColor: const Color.fromARGB(255, 50, 58, 60),
-      ),
-      home: const GroceryList(),
+      home: RestaurantsView(restaurants: allRestaurants),
     );
+  }
+
+  List<Restaurant> get allRestaurants {
+    List<Restaurant> result = [
+      Restaurant(
+        name: 'Flutter Burger',
+        address: 'Street 174, Phnom Penh',
+        type: RestaurantType.khmer,
+      ),
+      
+      Restaurant(
+        name: 'Les croissants de Ronan',
+        address: 'Sisowath Quay, Phnom Penh',
+        type: RestaurantType.french,
+      ),
+      
+      Restaurant(
+        name: 'La Pizza Del Ronano (the best)',
+        address: 'BKK1, Phnom Penh',
+        type: RestaurantType.italian,
+      ),
+      
+      Restaurant(
+        name: 'Final Tacos',
+        address: 'Street Exam, Phnom Penh',
+        type: RestaurantType.mexican,
+      ),
+      Restaurant(
+        name: 'No money no Rice',
+        address: 'BKK1, Phnom Penh',
+        type: RestaurantType.streetfood,
+      ),
+
+       Restaurant(
+        name: 'Ronano the Besto',
+        address: 'CADT, Phnom Penh',
+        type: RestaurantType.khmer,
+      ),
+       
+    ];
+    return result;
   }
 }
